@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="pydoit_landing_header" name="Pydo-IT | Landing Header">
+        <header class="pydoit-landing-header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <div class="container">
+                    <!-- Brand -->
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="/pydo-it">
+                        <img t-att-src="'/pydoit_landing_page/static/src/img/imagotipo_horizontal.png'"
+                                alt="Pydo-IT"
+                                style="height:35px; width:auto;"/>
+                        <span class="pydoit-brand-text">Consultoría Odoo</span>
+                    </a>
+                    <!-- Toggler -->
+                    <button class="navbar-toggler" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#pydoitNavbar"
+                            aria-controls="pydoitNavbar" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <!-- Collapse -->
+                    <div class="collapse navbar-collapse" id="pydoitNavbar">
+                        <!-- Left menu -->
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pydo-it#servicios">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pydo-it#experiencia">Experiencia</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/pydo-it#equipo">Equipo</a>
+                            </li>
+                        </ul>
+                        <!-- Right actions -->
+                        <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-2 gap-lg-3">
+                            <a class="nav-link o_nav-link_secondary p-2 d-inline-flex align-items-center"
+                                href="tel:+525612197281">
+                                <i class="fa fa-fw fa-phone me-1"></i>
+                                <span class="o_force_ltr">+52 5612 197 281</span>
+                            </a>
+                            <a class="nav-link o_nav-link_secondary p-2 d-inline-flex align-items-center"
+                                href="tel:+529519408338">
+                                <i class="fa fa-fw fa-phone me-1"></i>
+                                <span class="o_force_ltr">+52 9519 408 338</span>
+                            </a>
+                            <a class="btn btn-primary"
+                                href="/pydo-it#contacto">
+                                Contáctanos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </template>
+</odoo>

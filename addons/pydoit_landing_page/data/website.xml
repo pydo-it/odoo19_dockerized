@@ -1,0 +1,6 @@
+<odoo noupdate="1">
+    <record id="website.default_website" model="website">
+    <field name="name">Pydo-IT</field>
+    <field name="logo" type="base64" file="pydoit_landing_page/static/src/img/imagotipo_horizontal.png"/>
+    </record>
+</odoo>

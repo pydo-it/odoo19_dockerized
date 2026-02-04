@@ -1,0 +1,494 @@
+// Pydo-IT Landing Page styles
+// Palette extracted from logo: #3080c0 (blue), #804080 (purple), #0090a0 (teal), #301050 (dark)
+
+:root {
+  --pydoit-blue: #3080c0;
+  --pydoit-purple: #804080;
+  --pydoit-teal: #0090a0;
+  --pydoit-dark: #301050;
+  --pydoit-ink: #111827;
+  --pydoit-soft: #f3f4f6;
+
+  --pydoit-muted: rgba(17,24,39,.70);
+  --pydoit-border: rgba(17,24,39,.10);
+  --pydoit-shadow: 0 18px 40px rgba(0,0,0,.06);
+}
+
+/* ===========================
+            HERO
+   =========================== */
+.pydoit-hero {
+  color: #fff;
+
+  background:
+    radial-gradient(780px circle at 78% 46%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.06) 40%, transparent 68%),
+    radial-gradient(900px circle at 18% 18%, rgba(48, 128, 192, 0.34), transparent 58%),
+    radial-gradient(900px circle at 82% 18%, rgba(0, 144, 160, 0.26), transparent 60%),
+    linear-gradient(120deg, #150824 0%, #0f1630 35%, #0b2a35 70%, #0b3642 100%);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.pydoit-logo-wrap{
+  position: relative;
+  display: inline-block;
+}
+
+.pydoit-eyebrow {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.pydoit-accent {
+  background: linear-gradient(90deg, var(--pydoit-blue), var(--pydoit-teal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.pydoit-logo {
+  max-height: 400px;
+  filter:
+    drop-shadow(0 18px 35px rgba(0,0,0,0.28))
+    drop-shadow(0 0 16px rgba(255,255,255,0.06));
+}
+
+.pydoit-hero .btn-primary,
+.pydoit-form .btn-primary {
+  --bs-btn-bg: var(--pydoit-blue);
+  --bs-btn-border-color: var(--pydoit-blue);
+  --bs-btn-hover-bg: #2a6faa;
+  --bs-btn-hover-border-color: #2a6faa;
+  --bs-btn-active-bg: #245f93;
+  --bs-btn-active-border-color: #245f93;
+}
+
+.pydoit-hero .btn-outline-light {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgba(255,255,255,0.55);
+  --bs-btn-hover-bg: rgba(255,255,255,0.12);
+  --bs-btn-hover-border-color: rgba(255,255,255,0.75);
+}
+
+.pydoit-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.pydoit-pill {
+  padding: .35rem .6rem;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  font-size: .9rem;
+}
+
+/* ===========================
+        SECTIONS / CARDS
+   =========================== */
+.pydoit-section {
+  background: #fff;
+}
+
+.pydoit-section:not(.bg-white) {
+  background: var(--pydoit-soft);
+}
+
+.pydoit-card {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.pydoit-card--glass {
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(10px);
+}
+
+.pydoit-service {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  height: 100%;
+}
+
+.pydoit-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: .75rem;
+  background: linear-gradient(135deg, var(--pydoit-purple), var(--pydoit-teal));
+}
+
+.pydoit-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.pydoit-tag {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 999px;
+  padding: .25rem .6rem;
+  font-size: .9rem;
+}
+
+.pydoit-steps {
+  padding-left: 1.1rem;
+}
+
+.pydoit-metric {
+  background: var(--pydoit-soft);
+  border-radius: .9rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.pydoit-metric__value {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--pydoit-dark);
+}
+
+.pydoit-metric__label {
+  font-size: .95rem;
+  color: rgba(17, 24, 39, 0.75);
+}
+
+.pydoit-contact {
+  display: grid;
+  gap: .75rem;
+}
+
+/* ===========================
+        CONTACT + FORM
+   =========================== */
+.pydoit-contact__item {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .50rem .85rem;
+  min-height: 40px;
+
+  line-height: 1.2;
+  box-sizing: border-box;
+}
+
+.pydoit-contact__label {
+  color: rgba(17, 24, 39, 0.65);
+  opacity: 1;
+  line-height: 1.2;
+
+  font-weight: 500;
+  font-size: .95rem;
+
+  min-width: 130px;
+  flex: 0 0 auto;
+  margin: 0 !important;
+}
+
+.pydoit-contact__value {
+  color: var(--pydoit-ink);
+  font-weight: 700;
+  font-size: .95rem;
+
+  line-height: 1.2;
+  margin: 0 !important;
+
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.pydoit-form {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  border-radius: 1.25rem;
+  padding: 1.25rem;
+}
+
+.pydoit-form .form-label {
+  color: rgba(17, 24, 39, 0.85);
+}
+
+.pydoit-form .form-control {
+  background: #fff;
+  border: 1px solid rgba(17, 24, 39, 0.15);
+}
+
+.pydoit-form .text-white-50 {
+  color: rgba(17, 24, 39, 0.55) !important;
+}
+
+/* Optional dark variant */
+.pydoit-hero .pydoit-contact__item,
+.pydoit-hero .pydoit-form {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.pydoit-hero .pydoit-contact__label,
+.pydoit-hero .pydoit-form .form-label {
+  color: rgba(255,255,255,0.88);
+}
+
+.pydoit-hero .pydoit-contact__value {
+  color: #fff;
+}
+
+.pydoit-hero .pydoit-form .form-control {
+  background: rgba(255,255,255,0.92);
+}
+
+@media (max-width: 991.98px) {
+  .pydoit-logo { max-height: 120px; }
+
+  .pydoit-contact__label{
+    min-width: 110px;
+    font-size: .92rem;
+  }
+  .pydoit-contact__value{
+    font-size: .92rem;
+  }
+}
+
+.pydoit-brand-text{
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: .3px;
+  line-height: 1.1;
+}
+
+/* Anchor */
+#contacto { scroll-margin-top: 110px; }
+
+#contacto:target .pydoit-form,
+#contacto:target .pydoit-contact {
+  border-radius: 18px;
+  animation: pydoitGlow 1.2s ease-out 1;
+}
+
+@keyframes pydoitGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.0); }
+  25%  { box-shadow: 0 0 0 10px rgba(var(--bs-primary-rgb), 0.25); }
+  100% { box-shadow: 0 0 0 0 rgba(var(--bs-primary-rgb), 0.0); }
+}
+
+html { scroll-behavior: smooth; }
+/* ===========================
+              FOOTER
+   =========================== */
+.pydoit-footer{
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px circle at 18% 0%, rgba(48,128,192,.10), transparent 55%),
+    radial-gradient(900px circle at 82% 0%, rgba(0,144,160,.10), transparent 55%),
+    linear-gradient(180deg, #ffffff 0%, #fbfbfc 60%, #f7f8fa 100%);
+  border-top: 1px solid var(--pydoit-border);
+}
+
+.pydoit-footer::before{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  opacity: .8;
+  background: linear-gradient(90deg, transparent, rgba(48,128,192,.35), rgba(0,144,160,.35), transparent);
+}
+
+/* títulos */
+.pydoit-footer__title{
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: var(--pydoit-ink);
+}
+
+/* texto de about */
+.pydoit-footer__about{
+  max-width: 58ch;
+  line-height: 1.65;
+  color: var(--pydoit-muted);
+}
+
+/* Links: subrayado “premium” con animación */
+.pydoit-footer__links a,
+.pydoit-footer__contact-list a{
+  position: relative;
+  text-decoration: none;
+  color: rgba(17,24,39,.82);
+  transition: color .15s ease;
+}
+
+.pydoit-footer__links a::after,
+.pydoit-footer__contact-list a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .18s ease;
+  background: linear-gradient(90deg, var(--pydoit-blue), var(--pydoit-teal));
+  border-radius: 999px;
+  opacity: .9;
+}
+
+.pydoit-footer__links a:hover,
+.pydoit-footer__contact-list a:hover{
+  color: var(--pydoit-dark);
+}
+
+.pydoit-footer__links a:hover::after,
+.pydoit-footer__contact-list a:hover::after{
+  transform: scaleX(1);
+}
+
+/* listado contacto: mejora icono/texto */
+.pydoit-footer__contact-list i{
+  color: rgba(17,24,39,.65);
+  transition: color .15s ease;
+  opacity: .85;
+}
+
+.pydoit-footer__contact-list a:hover i{
+  color: var(--pydoit-blue);
+  gap: .55rem !important;
+}
+
+@media (min-width: 992px){
+  .pydoit-footer__contact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Redes sociales */
+.pydoit-footer__social {
+  margin-top: .85rem;
+}
+
+.pydoit-footer__social .pydoit-social{
+  width: 44px;
+  height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(135deg, var(--pydoit-purple), var(--pydoit-teal));
+  color: #fff;
+
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.10);
+
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease, box-shadow .15s ease;
+}
+
+.pydoit-footer__social .pydoit-social:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 28px rgba(0,0,0,.14);
+}
+
+.pydoit-footer__social .pydoit-social:active{
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+.pydoit-footer__social .pydoit-social:focus-visible{
+  outline: 3px solid rgba(48,128,192,.35);
+  outline-offset: 3px;
+}
+
+.pydoit-footer__social .pydoit-social i{
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* bottom bar (copyright) */
+.pydoit-footer hr{
+  border-color: rgba(17,24,39,.10);
+}
+
+.pydoit-footer .text-muted{
+  color: rgba(17,24,39,.55) !important;
+}
+
+.pydoit-footer__title{
+  position: relative;
+  padding-bottom: .35rem;
+}
+.pydoit-footer__title::after{
+  content: "";
+  display: block;
+  width: 34px;
+  height: 3px;
+  margin-top: .55rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pydoit-blue), var(--pydoit-teal));
+  opacity: .9;
+}
+
+.pydoit-footer__social .pydoit-social svg{
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: currentColor;
+}
+
+/* Logo pequeño SOLO para footer (no afecta al hero) */
+.pydoit-footer__logo{
+  height: 52px;
+  width: auto;
+  max-width: 100%;
+  filter: none;
+}
+
+@media (max-width: 991.98px){
+  .pydoit-footer__logo{
+    height: 44px;
+  }
+}
+
+.pydoit-footer__brand{
+  align-items: center;
+}
+
+.pydoit-footer__brandname{
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.pydoit-footer__tagline{
+  color: rgba(17,24,39,.65);
+  font-size: .92rem;
+}
+
+.pydoit-footer__main{
+  align-items: flex-start;
+}
+
+.pydoit-footer__micro,
+.pydoit-footer__about{
+  color: rgba(17,24,39,.72) !important;
+}

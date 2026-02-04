@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  
+  <!-- Landing Page (coded from scratch) -->
+  <template id="pydoit_landing" name="Pydo-IT | Consultoria Odoo">
+    <t t-call="website.layout" >
+
+      <!-- Oculta el header nativo SOLO en esta landing -->
+      <t t-set="pydoit_hide_header" t-value="True"/>
+
+      <!-- Oculta el footer nativo SOLO en esta landing -->
+      <t t-set="pydoit_hide_footer" t-value="True"/>
+
+      <t t-set="pageName" t-value="'pydoit_landing'"/>
+
+      <!-- Tu navbar custom -->
+      <t t-call="pydoit_landing_page.pydoit_landing_header"/>
+
+      <div id="wrap" class="oe_structure">
+
+        <!-- HERO -->
+        <section class="pydoit-hero py-5">
+
+          <div class="container">
+            <div class="row align-items-center g-4">
+              <div class="col-12 col-lg-7">
+                <p class="pydoit-eyebrow mb-2">Pydo-IT Solutions &amp; Consulting</p>
+                <h1 class="display-5 fw-bold mb-3">Implementamos y desarrollamos en <span class="pydoit-accent">Odoo</span> para transformar tu operación</h1>
+                <p class="lead mb-4">
+                  Consultoría especializada en transformación digital: estrategias y soluciones tecnológicas que resuelven problemas organizacionales y mejoran la eficiencia operativa.
+                </p>
+
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-primary btn-lg" href="#contacto">Agendar diagnóstico</a>
+                  <a class="btn btn-outline-light btn-lg" href="#servicios">Ver servicios</a>
+                </div>
+
+                <div class="pydoit-hero-pills mt-4">
+                  <div class="pydoit-pill">Equipo interdisciplinario (10+)</div>
+                  <div class="pydoit-pill">PMI · SCRUM · RUP · Híbrida</div>
+                  <div class="pydoit-pill">Online e In situ</div>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-5 text-center">
+                <div class="pydoit-logo-wrap">
+                  <img class="img-fluid pydoit-logo"
+                        alt="Pydo-IT"
+                        t-att-src="'/pydoit_landing_page/static/src/img/imagotipo_3.png'"/>
+                </div>
+                <p class="text-white-50 mt-3 mb-0">Odoo + Procesos + Desarrollo: una sola ruta, un solo equipo.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- VALUE PROPOSITION -->
+        <section class="pydoit-section py-5">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-12 col-lg-4">
+                <div class="pydoit-card">
+                  <h3 class="h5 mb-2">Estrategia antes que código</h3>
+                  <p class="mb-0">Aterrizamos objetivos, alcance y riesgos para que Odoo quede alineado a tu operación.</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="pydoit-card">
+                  <h3 class="h5 mb-2">Implementación con método</h3>
+                  <p class="mb-0">Planificación y entregas por etapas con buenas prácticas (PMI/SCRUM) para controlar tiempos y cambios.</p>
+                </div>
+              </div>
+              <div class="col-12 col-lg-4">
+                <div class="pydoit-card">
+                  <h3 class="h5 mb-2">Soporte y mejora continua</h3>
+                  <p class="mb-0">Capacitación, documentación y acompañamiento para que el sistema realmente se use y evolucione.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="servicios" class="pydoit-section py-5 bg-white">
+          <div class="container">
+            <div class="row align-items-end mb-4">
+              <div class="col-12 col-lg-8">
+                <h2 class="fw-bold mb-2">Servicios estratégicos</h2>
+                <p class="mb-0">Un equipo para cubrir negocio, procesos y tecnología en un solo delivery.</p>
+              </div>
+              <div class="col-12 col-lg-4 text-lg-end mt-3 mt-lg-0">
+                <a class="btn btn-outline-primary" href="#contacto">Cotizar proyecto</a>
+              </div>
+            </div>
+
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="pydoit-service">
+                  <div class="pydoit-icon">S</div>
+                  <h3 class="h6 fw-bold mb-2">Asesoramiento estratégico</h3>
+                  <p class="mb-0">Diagnóstico, roadmap, alcance, KPIs y acompañamiento directivo.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="pydoit-service">
+                  <div class="pydoit-icon">P</div>
+                  <h3 class="h6 fw-bold mb-2">Procesos de negocio</h3>
+                  <p class="mb-0">Análisis y optimización de procesos para estandarizar y automatizar en Odoo.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="pydoit-service">
+                  <div class="pydoit-icon">D</div>
+                  <h3 class="h6 fw-bold mb-2">Desarrollo e implementación</h3>
+                  <p class="mb-0">Configuración, integraciones, reportes y módulos a medida.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <div class="pydoit-service">
+                  <div class="pydoit-icon">C</div>
+                  <h3 class="h6 fw-bold mb-2">Capacitación y soporte</h3>
+                  <p class="mb-0">Online o in situ, documentación y mejora continua post salida.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experiencia" class="pydoit-section py-5">
+          <div class="container">
+            <div class="row g-4 align-items-center">
+              <div class="col-12 col-lg-6">
+                <h2 class="fw-bold mb-3">Experiencia en Odoo</h2>
+                <p class="mb-4">Desarrollo e implementación de módulos (ejemplos):</p>
+
+                <div class="pydoit-tags">
+                  <span class="pydoit-tag">Egresos</span>
+                  <span class="pydoit-tag">Pagos de nómina</span>
+                  <span class="pydoit-tag">Finanzas</span>
+                  <span class="pydoit-tag">Pagos</span>
+                  <span class="pydoit-tag">Bancos y transferencias</span>
+                  <span class="pydoit-tag">Cheques</span>
+                  <span class="pydoit-tag">Presupuesto</span>
+                  <span class="pydoit-tag">Presupuestos gubernamentales (Ingresos y Egresos)</span>
+                  <span class="pydoit-tag">Contabilidad</span>
+                  <span class="pydoit-tag">Gestión de seguros</span>
+                  <span class="pydoit-tag">Subsidio federal</span>
+                  <span class="pydoit-tag">Convenios</span>
+                  <span class="pydoit-tag">Ingresos</span>
+                  <span class="pydoit-tag">Donativos</span>
+                  <span class="pydoit-tag">Almacén e inventario</span>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-6">
+                <div class="pydoit-card pydoit-card--glass">
+                  <h3 class="h5 fw-bold mb-2">Cómo trabajamos</h3>
+                  <ol class="pydoit-steps mb-0">
+                    <li><b>Diagnóstico</b>: objetivos, procesos, brechas y plan de implementación.</li>
+                    <li><b>Diseño</b>: arquitectura, módulos, integraciones y prototipo.</li>
+                    <li><b>Implementación</b>: configuración, desarrollo, pruebas y migración.</li>
+                    <li><b>Go-Live + Soporte</b>: capacitación, mesa de ayuda y mejora continua.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEAM -->
+        <section id="equipo" class="pydoit-section py-5 bg-white">
+          <div class="container">
+            <div class="row g-4">
+              <div class="col-12 col-lg-6">
+                <h2 class="fw-bold mb-3">Equipo interdisciplinario</h2>
+                <p class="mb-0">Equipo de expertos en procesos, negocio y desarrollo. Trabajamos con metodologías PMI, SCRUM, RUP e híbridas.</p>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="pydoit-card">
+                  <div class="row g-3">
+                    <div class="col-6">
+                      <div class="pydoit-metric">
+                        <div class="pydoit-metric__value">10+</div>
+                        <div class="pydoit-metric__label">Especialistas</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="pydoit-metric">
+                        <div class="pydoit-metric__value">Odoo</div>
+                        <div class="pydoit-metric__label">Implementación + Dev</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="pydoit-metric">
+                        <div class="pydoit-metric__value">Online</div>
+                        <div class="pydoit-metric__label">Remoto</div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="pydoit-metric">
+                        <div class="pydoit-metric__value">In situ</div>
+                        <div class="pydoit-metric__label">En tu oficina</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT / LEAD FORM -->
+        <section id="contacto" class="pydoit-section py-5">
+          <div class="container">
+            <div class="row g-4 align-items-start">
+              <div class="col-12 col-lg-5">
+                <h2 class="fw-bold mb-2">Hablemos de tu implementación</h2>
+                <p class="mb-4">Cuéntanos tu contexto y te proponemos el mejor camino (alcance, tiempos y costo estimado).</p>
+
+                <div class="pydoit-contact">
+                  <div class="pydoit-contact__item">
+                    <span class="pydoit-contact__label">Sede CDMX</span>
+                    <a class="pydoit-contact__value" href="tel:+525612197281">+52 5612 197 281</a>
+                  </div>
+
+                  <div class="pydoit-contact__item">
+                    <span class="pydoit-contact__label">Sede Chiapas</span>
+                    <a class="pydoit-contact__value" href="tel:+529519408338">+52 9519 408 338</a>
+                  </div>
+
+                  <div class="pydoit-contact__item">
+                    <span class="pydoit-contact__label">Email</span>
+                    <a class="pydoit-contact__value" href="mailto:contacto@pydo-it.com">contacto@pydo-it.com</a>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-12 col-lg-7">
+                <!-- Website form: creates crm.lead -->
+                <form
+                  action="/website/form/" method="post"
+                  enctype="multipart/form-data"
+                  class="s_website_form o_mark_required pydoit-form"
+                  data-mark="*" data-pre-fill="true"
+                  data-success-mode="redirect"
+                  data-success-page="/pydo-it/gracias"
+                  data-model_name="crm.lead">
+                
+                  <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                
+                  <!-- OJO: s_website_form_rows como hijo directo -->
+                  <div class="s_website_form_rows row g-3">
+                
+                    <div class="col-12 col-md-6">
+                      <label class="form-label">Nombre <span class="o_mark">*</span></label>
+                      <input type="text" name="contact_name" class="form-control" required="required" placeholder="Tu nombre"/>
+                    </div>
+                
+                    <div class="col-12 col-md-6">
+                      <label class="form-label">Empresa</label>
+                      <input type="text" name="partner_name" class="form-control" placeholder="Nombre de tu empresa"/>
+                    </div>
+                
+                    <div class="col-12 col-md-6">
+                      <label class="form-label">Correo <span class="o_mark">*</span></label>
+                      <input type="email" name="email_from" class="form-control" required="required" placeholder="correo@empresa.com"/>
+                    </div>
+                
+                    <div class="col-12 col-md-6">
+                      <label class="form-label">Teléfono</label>
+                      <input type="tel" name="phone" class="form-control" placeholder="+52 ..."/>
+                    </div>
+                
+                    <div class="col-12">
+                      <label class="form-label">¿Qué necesitas? <span class="o_mark">*</span></label>
+                      <textarea name="description" class="form-control" rows="4" required="required"
+                                placeholder="Ej. Implementación Odoo, integración, soporte, desarrollo a medida..."></textarea>
+                    </div>
+                
+                    <input type="hidden" name="name" value="Lead desde Landing Pydo-IT"/>
+                  </div>
+                
+                  <!-- s_website_form_submit como hijo directo del form -->
+                  <div class="s_website_form_submit d-flex flex-wrap align-items-center gap-2 mt-3">
+                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+                    <small class="text-muted">Al enviar, aceptas que te contactemos para darte seguimiento.</small>
+                  </div>
+                
+                  <!-- s_website_form_end como hijo directo del form -->
+                  <div class="s_website_form_end"></div>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <footer class="pydoit-footer py-5">
+        <div class="container">
+
+          <div class="row g-4 align-items-start pydoit-footer__main">
+
+            <!-- Brand / Identidad -->
+            <div class="col-12 col-lg-3">
+              <div class="pydoit-footer__brand d-flex align-items-center gap-2 mb-3">
+                <img class="img-fluid pydoit-footer__logo"
+                  alt="Pydo-IT"
+                  t-att-src="'/pydoit_landing_page/static/src/img/imagotipo_3.png'"/>
+                <div class="lh-sm">
+                  <div class="pydoit-footer__brandname">Pydo-IT</div>
+                  <div class="pydoit-footer__tagline">Solutions &amp; Consulting</div>
+                </div>
+              </div>
+
+              <p class="pydoit-footer__micro mb-0">
+                Odoo • Procesos • Desarrollo. Un solo equipo para implementar, integrar y dar soporte.
+              </p>
+            </div>
+
+            <!-- Enlaces útiles -->
+            <div class="col-12 col-md-4 col-lg-2">
+              <h5 class="pydoit-footer__title mb-3">Enlaces</h5>
+              <ul class="list-unstyled pydoit-footer__links mb-0">
+                <li><a class="pydoit-footer__micro" href="/pydo-it#servicios">Servicios</a></li>
+                <li><a class="pydoit-footer__micro" href="/pydo-it#experiencia">Experiencia</a></li>
+                <li><a class="pydoit-footer__micro" href="/pydo-it#equipo">Equipo</a></li>
+              </ul>
+            </div>
+
+            <!-- Sobre nosotros -->
+            <div class="col-12 col-md-8 col-lg-4">
+              <h5 class="pydoit-footer__title mb-3">Sobre nosotros</h5>
+              <p class="pydoit-footer__about mb-0">
+                Somos un equipo interdisciplinario enfocado en resultados. Aterrizamos procesos,
+                definimos alcance y entregamos implementaciones Odoo con metodología y buenas prácticas.
+              </p>
+            </div>
+
+            <!-- Contáctenos -->
+            <div class="col-12 col-lg-3">
+              <div class="pydoit-footer__contact w-100">
+                <h5 class="pydoit-footer__title mb-3">Contáctenos</h5>
+
+                <ul class="list-unstyled mb-0 pydoit-footer__contact-list">
+                  <li class="mb-2">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="/pydo-it#contacto">
+                      <i class="fa fa-fw fa-comment"></i>
+                      <span>Contáctanos</span>
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="mailto:contacto@pydo-it.com">
+                      <i class="fa fa-fw fa-envelope"></i>
+                      <span>contacto@pydo-it.com</span>
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="tel:+525612197281">
+                      <i class="fa fa-fw fa-phone"></i>
+                      <span>+52 5612 197 281</span>
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="tel:+529519408338">
+                      <i class="fa fa-fw fa-phone"></i>
+                      <span>+52 9519 408 338</span>
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Redes -->
+                <div class="pydoit-footer__social d-flex gap-2 mt-3">
+                  <a class="pydoit-social" href="https://www.facebook.com/people/Pydo-IT-Solutions-Consulting/61586330170898/"
+                      target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M22 12a10 10 0 1 0-11.56 9.88v-7H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88
+                      1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.62.77-1.62 1.56V12h2.76l-.44 2.88h-2.32v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://www.instagram.com/pydoit"
+                      target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7
+                      a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5a4.5 4.5 0 1 1 0 9
+                      4.5 4.5 0 0 1 0-9zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.8-1.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://www.linkedin.com/company/pydo-it/"
+                      target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04
+                      c.4-.76 1.38-1.56 2.84-1.56C18.4 9.08 20.5 10.6 20.5 14v7h-3v-6.2c0-1.48-.03-3.38-2.06-3.38
+                      -2.06 0-2.38 1.6-2.38 3.27V21H9V9z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://x.com/pydo_it"
+                      target="_blank" rel="noopener" aria-label="X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.9 2H22l-6.8 7.78L23 22h-6.2l-4.86-6.25L6.3 22H3l7.3-8.36L1 2h6.35l4.4 5.65L18.9 2zm-1.1 18
+                      h1.72L6.4 3.93H4.55L17.8 20z"/>
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="my-4"/>
+
+          <div class="pydoit-footer__bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
+            <span>© Copyright 2026. Pydo-IT Solutions &amp; Consulting</span>
+            <a class="text-reset" href="/pydo-it">Ir a inicio</a>
+          </div>
+
+        </div>
+      </footer>
+
+    </t>
+  </template>
+
+  <!-- Route via website.page record -->
+  <record id="page_pydoit_landing" model="website.page">
+    <field name="name">Pydo-IT Landing</field>
+    <field name="url">/pydo-it</field>
+    <field name="view_id" ref="pydoit_landing"/>
+    <field name="is_published">True</field>
+    <field name="website_id" ref="website.default_website"/>
+  </record>
+
+</odoo>

@@ -1,0 +1,44 @@
+services:
+  db:
+    image: postgres:16
+    container_name: odoo19_db
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - odoo19-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  odoo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: odoo:19.0
+    container_name: odoo19_app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${ODOO_PORT_MAP}"
+      - "${ODOO_BUS_PORT_MAP}"
+      - "${ODOO_LONGPOLLING_PORT_MAP}"
+    environment:
+      # Variables que la imagen oficial reconoce para conectar a Postgres
+      HOST: ${ODOO_HOST}
+      USER: ${POSTGRES_USER}
+      PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - odoo19-filestore:/var/lib/odoo
+      - ./addons:/mnt/extra-addons
+      - ./config/odoo.conf:/etc/odoo/odoo.conf:ro
+
+volumes:
+  odoo19-db-data:
+  odoo19-filestore:

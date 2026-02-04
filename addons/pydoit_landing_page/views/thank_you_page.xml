@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="pydoit_thank_you" name="Pydo-IT | Gracias">
+    <t t-call="website.layout">
+
+      <!-- Oculta el header nativo SOLO en esta landing -->
+      <t t-set="pydoit_hide_header" t-value="True"/>
+
+      <!-- Oculta el footer nativo SOLO en esta landing -->
+      <t t-set="pydoit_hide_footer" t-value="True"/>
+
+      <t t-set="pageName" t-value="'pydoit_thank_you'"/>
+
+      <!-- Tu navbar custom -->
+      <t t-call="pydoit_landing_page.pydoit_landing_header"/>
+
+      <div id="wrap" class="oe_structure">
+        <section class="pydoit-section py-5 bg-white">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-12 col-lg-8 text-center">
+                <img class="img-fluid mb-4" style="max-height:120px" alt="Pydo-IT" t-att-src="'/pydoit_landing_page/static/src/img/imagotipo_3.png'"/>
+                <h1 class="fw-bold mb-3">Gracias, recibimos tu solicitud</h1>
+                <p class="lead mb-4">En breve un consultor se pondrá en contacto contigo. Si urge, puedes escribirnos por correo o WhatsApp.</p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                  <a class="btn btn-primary" href="/pydo-it">Volver a la landing</a>
+                  <a class="btn btn-outline-primary" href="mailto:pydoit.sc@gmail.com">Enviar correo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <footer class="pydoit-footer py-5">
+        <div class="container">
+
+          <div class="row g-4 align-items-start pydoit-footer__main">
+
+            <!-- Brand / Identidad -->
+            <div class="col-12 col-lg-3">
+              <div class="pydoit-footer__brand d-flex align-items-center gap-2 mb-3">
+                <img class="img-fluid pydoit-footer__logo"
+                  alt="Pydo-IT"
+                  t-att-src="'/pydoit_landing_page/static/src/img/imagotipo_3.png'"/>
+                <div class="lh-sm">
+                  <div class="pydoit-footer__brandname">Pydo-IT</div>
+                  <div class="pydoit-footer__tagline">Solutions &amp; Consulting</div>
+                </div>
+              </div>
+
+              <p class="pydoit-footer__micro mb-0">
+                Odoo • Procesos • Desarrollo. Un solo equipo para implementar, integrar y dar soporte.
+              </p>
+            </div>
+
+            <!-- Enlaces útiles -->
+            <div class="col-12 col-md-4 col-lg-2">
+              <h5 class="pydoit-footer__title mb-3">Enlaces</h5>
+              <ul class="list-unstyled pydoit-footer__links mb-0">
+                <li><a class="pydoit-footer__micro" href="/pydo-it#servicios">Servicios</a></li>
+                <li><a class="pydoit-footer__micro" href="/pydo-it#experiencia">Experiencia</a></li>
+                <li><a class="pydoit-footer__micro" href="/pydo-it#equipo">Equipo</a></li>
+              </ul>
+            </div>
+
+            <!-- Sobre nosotros -->
+            <div class="col-12 col-md-8 col-lg-4">
+              <h5 class="pydoit-footer__title mb-3">Sobre nosotros</h5>
+              <p class="pydoit-footer__about mb-0">
+                Somos un equipo interdisciplinario enfocado en resultados. Aterrizamos procesos,
+                definimos alcance y entregamos implementaciones Odoo con metodología y buenas prácticas.
+              </p>
+            </div>
+
+            <!-- Contáctenos -->
+            <div class="col-12 col-lg-3">
+              <div class="pydoit-footer__contact w-100">
+                <h5 class="pydoit-footer__title mb-3">Contáctenos</h5>
+
+                <ul class="list-unstyled mb-0 pydoit-footer__contact-list">
+                  <li class="mb-2">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="/pydo-it#contacto">
+                      <i class="fa fa-fw fa-comment"></i>
+                      <span>Contáctanos</span>
+                    </a>
+                  </li>
+                  <li class="mb-2">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="mailto:pydoit.sc@gmail.com">
+                      <i class="fa fa-fw fa-envelope"></i>
+                      <span>pydoit.sc@gmail.com</span>
+                    </a>
+                  </li>
+                  <li class="mb-3">
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="tel:+525612197281">
+                      <i class="fa fa-fw fa-phone"></i>
+                      <span>+52 56 1219 7281</span>
+                    </a>
+                    <a class="pydoit-footer__micro d-flex align-items-center gap-2" href="tel:+529519408338">
+                      <i class="fa fa-fw fa-phone"></i>
+                      <span>+52 95 1940 8338</span>
+                    </a>
+                  </li>
+                </ul>
+
+                <!-- Redes -->
+                <div class="pydoit-footer__social d-flex gap-2 mt-3">
+                  <a class="pydoit-social" href="https://www.facebook.com/people/Pydo-IT-Solutions-Consulting/61586330170898/"
+                      target="_blank" rel="noopener" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M22 12a10 10 0 1 0-11.56 9.88v-7H7.9V12h2.54V9.8c0-2.5 1.49-3.88 3.77-3.88
+                      1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.62.77-1.62 1.56V12h2.76l-.44 2.88h-2.32v7A10 10 0 0 0 22 12z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://www.instagram.com/pydoit"
+                      target="_blank" rel="noopener" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7
+                      a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 3.5a4.5 4.5 0 1 1 0 9
+                      4.5 4.5 0 0 1 0-9zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.8-1.2a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://www.linkedin.com/company/pydo-it/"
+                      target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3.5 21h3V9h-3v12zM9 9h2.9v1.64h.04
+                      c.4-.76 1.38-1.56 2.84-1.56C18.4 9.08 20.5 10.6 20.5 14v7h-3v-6.2c0-1.48-.03-3.38-2.06-3.38
+                      -2.06 0-2.38 1.6-2.38 3.27V21H9V9z"/>
+                    </svg>
+                  </a>
+
+                  <a class="pydoit-social" href="https://x.com/pydo_it"
+                      target="_blank" rel="noopener" aria-label="X">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M18.9 2H22l-6.8 7.78L23 22h-6.2l-4.86-6.25L6.3 22H3l7.3-8.36L1 2h6.35l4.4 5.65L18.9 2zm-1.1 18
+                      h1.72L6.4 3.93H4.55L17.8 20z"/>
+                    </svg>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <hr class="my-4"/>
+
+          <div class="pydoit-footer__bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 small text-muted">
+            <span>© Copyright 2026. Pydo-IT Solutions &amp; Consulting</span>
+            <a class="text-reset" href="/pydo-it">Ir a inicio</a>
+          </div>
+
+        </div>
+      </footer>
+    </t>
+  </template>
+
+  <record id="page_pydoit_thank_you" model="website.page">
+    <field name="name">Pydo-IT Gracias</field>
+    <field name="url">/pydo-it/gracias</field>
+    <field name="view_id" ref="pydoit_thank_you"/>
+    <field name="is_published">True</field>
+  </record>
+</odoo>

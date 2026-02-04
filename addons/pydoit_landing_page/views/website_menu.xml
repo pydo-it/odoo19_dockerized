@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Borra SOLO los menús default -->
+  <delete model="website.menu"
+          search="[('website_id','=', 1), ('url','=', '/'), ('name', 'in', ['Inicio','Home'])]"/>
+  <delete model="website.menu"
+          search="[('website_id','=', 1), ('url','=', '/contactus'), ('name', 'in', ['Contáctanos','Contact us'])]"/>
+
+
+  <record id="menu_pydoit_landing" model="website.menu">
+    <field name="name">Consultoría Odoo</field>
+    <field name="url">/pydo-it</field>
+    <field name="parent_id" ref="website.main_menu"/>
+    <field name="sequence" eval="5"/>
+  </record>
+</odoo>

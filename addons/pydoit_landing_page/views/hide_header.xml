@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Oculta el HEADER del website.layout cuando la variable pydoit_hide_header sea True -->
+  <template id="pydoit_hide_header_in_layout" 
+            inherit_id="website.layout" 
+            name="Pydo-IT: Hide header in landing"
+            priority="20000">
+    <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+      <attribute name="t-if">not pydoit_hide_header</attribute>
+    </xpath>
+  </template>
+
+</odoo>

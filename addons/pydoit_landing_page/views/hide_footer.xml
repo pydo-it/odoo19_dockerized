@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Oculta el FOOTER del website.layout cuando pydoit_hide_footer sea True -->
+    <template id="pydoit_hide_footer_in_layout"
+                inherit_id="website.layout"
+                name="Pydo-IT: Hide footer in landing">
+        <xpath expr="//footer[1]" position="attributes">
+            <attribute name="t-if">not pydoit_hide_footer</attribute>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="pydoit_header_call_to_action_fix"
+            inherit_id="website.header_call_to_action"
+            name="Pydo-IT Header CTA -> /pydo-it#contacto"
+            priority="20000">
+
+    <!-- Cambia el href del CTA que por default apunta a /contactus -->
+    <xpath expr="//a[
+        contains(concat(' ', normalize-space(@class), ' '), ' btn ')
+        and (
+          contains(@href, 'contactus')
+          or contains(@t-att-href, 'contactus')
+          or contains(@t-attf-href, 'contactus')
+        )
+      ]"
+      position="attributes">
+
+      <attribute name="href">/pydo-it#contacto</attribute>
+      <attribute name="t-att-href">'/pydo-it#contacto'</attribute>
+      <attribute name="t-attf-href">/pydo-it#contacto</attribute>
+    </xpath>
+
+  </template>
+</odoo>

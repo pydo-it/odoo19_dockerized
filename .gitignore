@@ -1,0 +1,56 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+
+# =====================
+# Odoo
+# =====================
+odoo/
+odoo_core/
+*.log
+logs/
+filestore/
+sessions/
+
+# =====================
+# Docker / runtime
+# =====================
+odoo19-db-data/
+odoo19-filestore/
+pgdata/
+postgres-data/
+*.deb
+
+# =====================
+# Config / secrets
+# =====================
+.env
+*.env
+config/odoo.conf
+*.conf
+
+# =====================
+# Addons (solo subir el tuyo)
+# =====================
+custom_addons/*
+!custom_addons/pydoit_landing_page/
+
+# =====================
+# Build artifacts
+# =====================
+build/
+dist/
+
+# =====================
+# Editor / OS
+# =====================
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
