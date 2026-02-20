@@ -63,6 +63,59 @@ ODOO_LONGPOLLING_PORT_MAP=8092:8072
 ``` 
 .
 ├── addons
+│   ├── clinic_management
+│   │   ├── data
+│   │   │   ├── medical_encounter_sequence.xml
+│   │   │   ├── medical_lab_result_sequence.xml
+│   │   │   ├── medical_patients_sequence.xml
+│   │   │   └── medical_prescription_sequence.xml
+│   │   ├── i18n
+│   │   │   ├── es_419.po
+│   │   │   └── es_MX.po
+│   │   ├── __init__.py
+│   │   ├── __manifest__.py
+│   │   ├── models
+│   │   │   ├── __init__.py
+│   │   │   ├── medical_encounter.py
+│   │   │   ├── medical_lab_result.py
+│   │   │   ├── medical_patients.py
+│   │   │   ├── medical_prescription.py
+│   │   │   └── __pycache__
+│   │   │       ├── __init__.cpython-312.pyc
+│   │   │       ├── medical_encounter.cpython-312.pyc
+│   │   │       ├── medical_lab_result.cpython-312.pyc
+│   │   │       ├── medical_lab_result_preview_wizard.cpython-312.pyc
+│   │   │       ├── medical_patients.cpython-312.pyc
+│   │   │       └── medical_prescription.cpython-312.pyc
+│   │   ├── __pycache__
+│   │   │   └── __init__.cpython-312.pyc
+│   │   ├── README.md
+│   │   ├── reports
+│   │   │   ├── medical_prescription_report.xml
+│   │   │   ├── paperformat_medical_prescription.xml
+│   │   │   └── report_medical_prescription_templates.xml
+│   │   ├── security
+│   │   │   ├── clinic_management_security.xml
+│   │   │   └── ir.model.access.csv
+│   │   ├── static
+│   │   │   └── description
+│   │   │       ├── icon.png
+│   │   │       └── index.html
+│   │   ├── views
+│   │   │   ├── medical_encounter_actions.xml
+│   │   │   ├── medical_encounter_views.xml
+│   │   │   ├── medical_lab_result_views.xml
+│   │   │   ├── medical_patients_views.xml
+│   │   │   ├── medical_prescription_actions.xml
+│   │   │   ├── medical_prescription_views.xml
+│   │   │   └── menus.xml
+│   │   └── wizards
+│   │       ├── __init__.py
+│   │       ├── medical_lab_result_pdf_preview_wizard.py
+│   │       ├── medical_lab_result_pdf_preview_wizard_views.xml
+│   │       └── __pycache__
+│   │           ├── __init__.cpython-312.pyc
+│   │           └── medical_lab_result_pdf_preview_wizard.cpython-312.pyc
 │   └── pydoit_landing_page
 │       ├── controllers
 │       │   └── __init__.py
@@ -70,15 +123,12 @@ ODOO_LONGPOLLING_PORT_MAP=8092:8072
 │       │   └── website.xml
 │       ├── __init__.py
 │       ├── __manifest__.py
-│       ├── __pycache__
-│       │   └── __init__.cpython-312.pyc
 │       ├── README.md
 │       ├── static
 │       │   └── src
 │       │       ├── img
 │       │       │   ├── imagotipo_3.png
-│       │       │   ├── imagotipo_horizontal.png
-│       │       │   └── mascota_saludando.png
+│       │       │   └── imagotipo_horizontal.png
 │       │       ├── js
 │       │       │   ├── header_patch.js
 │       │       │   └── pydoit_landing.js
