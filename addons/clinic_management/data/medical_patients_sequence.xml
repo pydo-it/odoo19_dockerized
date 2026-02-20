@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="seq_medical_patients" model="ir.sequence">
+            <field name="name">Medical Patient Folio</field>
+            <field name="code">medical.patients</field>
+            <field name="prefix">PAT-</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+            <field name="implementation">no_gap</field>
+        </record>
+    </data>
+</odoo>

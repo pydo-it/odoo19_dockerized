@@ -39,6 +39,7 @@ config/odoo.conf
 # =====================
 custom_addons/*
 !custom_addons/pydoit_landing_page/
+!custom_addons/clinic_management/
 
 # =====================
 # Build artifacts

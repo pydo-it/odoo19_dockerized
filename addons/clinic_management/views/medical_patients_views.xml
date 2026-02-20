@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Vista list -->
+        <record id="view_medical_patients_list" model="ir.ui.view">
+            <field name="name">medical.patients.list</field>
+            <field name="model">medical.patients</field>
+            <field name="arch" type="xml">
+                <list string="Patients">
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="country_id"/>
+                    <field name="phone"/>
+                    <field name="email"/>
+                    <field name="birthdate"/>
+                    <field name="age" widget="age"/>
+                    <field name="gender"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </list>
+            </field>
+        </record>
+        <!-- Vista form -->
+        <record id="view_medical_patients_form" model="ir.ui.view">
+            <field name="name">medical.patients.form</field>
+            <field name="model">medical.patients</field>
+            <field name="arch" type="xml">
+                <form string="Patient">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="action"
+                                    name="%(clinic_management.action_medical_encounter_from_patient)d"
+                                    class="oe_stat_button"
+                                    icon="fa-stethoscope">
+                                <field name="encounter_count" widget="statinfo" string="Encounters"/>
+                            </button>
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Patient name..."/>
+                            </h1>
+                            <div>
+                                <label for="ref"/>
+                                <h2>
+                                    <field name="ref" readonly="1"/>
+                                </h2>
+                            </div>
+                        </div>
+                        <group>
+                            <group string="Contact Information">
+                                <field name="country_id"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </group>
+                            <group string="Demographic Information">
+                                <field name="birthdate"/>
+                                <field name="age" widget="age"/>
+                                <field name="gender"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <group string="Identification">
+                            <group>
+                                <field name="curp"/>
+                                <field name="rfc"/>
+                            </group>
+                            <group invisible="curp or rfc">
+                                <field name="id_type"/>
+                                <field name="id_number" invisible="not id_type"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Clinical History">
+                                <field name="encounter_ids" 
+                                    context="{
+                                        'form_view_ref': 'clinic_management.view_medical_encounter_form_readonly',
+                                        'readonly_from_patient': True
+                                    }"
+                                    readonly="1">
+                                    <list string="Encounters" create="0" edit="0" delete="0">
+                                        <field name="ref" string="Encounters"/>
+                                        <field name="encounter_date"/>
+                                        <field name="doctor_user_id"/>
+                                        <field name="state"/>
+                                        <field name="diagnosis"/>
+                                    </list>
+                                </field>
+                                <footer>
+                                    <button type="action"
+                                            name="%(clinic_management.action_medical_encounter_from_patient)d"
+                                            string="Open Encounters"
+                                            class="btn-primary"/>
+                                </footer>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+        <!-- Vista search -->
+        <record id="view_medical_patients_search" model="ir.ui.view">
+            <field name="name">medical.patients.search</field>
+            <field name="model">medical.patients</field>
+            <field name="arch" type="xml">
+                <search string="Search Patients">
+                    <field name="ref" string="Folio"/>
+                    <field name="name"/>
+                    <separator/>
+                    <filter string="Active" name="active" domain="[('active','=',True)]"/>
+                    <filter string="Archived" name="archived" domain="[('active','=',False)]"/>
+                    <separator/>
+                    <filter string="Has CURP" name="has_curp" domain="[('curp','!=',False)]"/>
+                    <filter string="Has RFC" name="has_rfc" domain="[('rfc','!=',False)]"/>
+                    <filter string="Has Email" name="has_email" domain="[('email','!=',False)]"/>
+                    <filter string="Has Phone" name="has_phone" domain="[('phone','!=',False)]"/>
+                </search>
+            </field>
+        </record>
+        <!-- Acción -->
+        <record id="action_medical_patients" model="ir.actions.act_window">
+            <field name="name">Patients</field>
+            <field name="res_model">medical.patients</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_medical_patients_search"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first patient
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

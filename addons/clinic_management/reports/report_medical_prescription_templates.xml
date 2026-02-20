@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="report_medical_prescription">
+    <t t-call="web.html_container">
+      <t t-foreach="docs" t-as="o">
+        <t t-call="web.basic_layout">
+
+          <style type="text/css">
+            /* ===== BASE ===== */
+            .page{
+              font-family: Arial, sans-serif;
+              font-size: 11px;
+              line-height: 1.2;
+
+              /* Flex layout para empujar el bloque inferior al final */
+              display: flex;
+              flex-direction: column;
+
+              /* Importante: permitir que tome el alto del papel (wkhtmltopdf) */
+              height: 100%;
+              min-height: 0;
+
+              box-sizing: border-box;
+            }
+
+            /* Cuerpo que puede estirarse y empujar el footer hacia abajo */
+            .rx-body{
+              flex: 1 1 auto;
+              display: flex;
+              flex-direction: column;
+              min-height: 0;
+            }
+
+            /* Espaciador flexible (solo se “infla” si hay poco contenido) */
+            .rx-spacer{
+              flex: 1 1 auto;
+              min-height: 0;
+            }
+
+            .rx-header{ border-bottom: 2px solid #1f5aa6; padding-bottom: 6px; margin-bottom: 8px; }
+            .rx-title{ font-size: 16px; font-weight: 700; margin: 0; }
+            .rx-subtitle{ font-size: 10px; color:#555; margin-top: 2px; }
+
+            .rx-box{ border:1px solid #ddd; border-radius:6px; padding:8px 10px; }
+            .rx-label{ font-weight:700; color:#222; }
+            .rx-muted{ color:#666; }
+            .rx-hr{ border-top:1px solid #ddd; margin: 6px 0; }
+
+            /* ===== RX grande para el área de receta ===== */
+            .rx-symbol{
+              font-size: 32px;
+              font-weight: 900;
+              color:#1f5aa6;
+              line-height: 1;
+              letter-spacing: -1px;
+            }
+
+            /* Texto “valor” para paciente/encounter */
+            .field-text{
+              font-size: 11px;
+              color:#666;
+              font-weight: 600;
+            }
+
+            /* ===== MEDS ===== */
+            .rx-medlist{ margin: 0; padding-left: 16px; }
+            .rx-meditem{ margin-bottom: 6px; page-break-inside: avoid; }
+            .rx-medname{ font-weight: 700; font-size: 12px; }
+            .rx-medmeta{ color:#333; margin-top: 2px; }
+            .rx-notes{ color:#444; white-space: pre-line; }
+
+            /* Layout de sección Rx + meds */
+            .rx-meds-wrap{ margin-top: 2px; }
+            .rx-meds-table{ width:100%; border-collapse:collapse; }
+            .rx-meds-left{ width:38px; vertical-align:top; padding-right:10px; }
+            .rx-meds-right{ vertical-align:top; }
+
+            /* ===== BOTTOM AREA (firma + footer) ===== */
+            .rx-bottom{
+              /* Ya NO usamos margin-top:auto aquí (lo hace rx-spacer/rx-body) */
+              padding-top: 6mm;       /* separación del cuerpo */
+            }
+
+            /* Firma a la derecha */
+            .rx-sign{ text-align: right; page-break-inside: avoid; }
+            .rx-signline{
+              border-top: 1px solid #999;
+              width: 280px;
+              margin-left: auto;
+              margin-top: 8px;
+            }
+            .rx-signlabel{
+              font-size: 10px;
+              margin-top: 4px;
+              font-weight: 700;
+              color:#222;
+              text-align: center;
+              width: 280px;
+              margin-left: auto;
+            }
+
+            /* Footer “normal” (NO fixed) */
+            .rx-footer{
+              margin-top: 6mm;
+              border-top: 2px solid #1f5aa6;
+              padding-top: 6px;
+              font-size: 9px;
+              color:#555;
+            }
+            .rx-footer table{ width:100%; border-collapse: collapse; }
+            .rx-footer td{ vertical-align: top; }
+            .rx-footer .right{ text-align:right; }
+            .nowrap{ white-space: nowrap; }
+          </style>
+
+          <div class="page">
+
+            <!-- ===== CUERPO (se estira para empujar el bloque inferior) ===== -->
+            <div class="rx-body">
+
+              <!-- ===== MEMBRETE ===== -->
+              <div class="rx-header">
+                <table style="width:100%; border-collapse:collapse; table-layout:fixed;">
+                  <tr>
+                    <!-- LOGO (más angosto y controlado) -->
+                    <td style="width:18%; vertical-align:middle; overflow:hidden;">
+                      <t t-if="o.company_id.logo">
+                        <img t-att-src="image_data_uri(o.company_id.logo)"
+                            style="max-height:52px; max-width:100%; width:auto; height:auto; display:block;"
+                            alt="Logo"/>
+                      </t>
+                    </td>
+
+                    <!-- CENTRO -->
+                    <td style="width:64%; text-align:center; vertical-align:top;">
+                      <div class="rx-title">
+                        <t t-esc="o.doctor_user_id.name or ''"/>
+                      </div>
+                      <div class="rx-subtitle">
+                        <t t-esc="o.company_id.name or ''"/>
+                      </div>
+                      <div class="rx-subtitle">Medicina General / Especialidad (ajustable)</div>
+                    </td>
+
+                    <!-- DERECHA -->
+                    <td style="width:18%; text-align:right; vertical-align:top;">
+                      <div style="font-size:10px;">
+                        <span class="rx-label">Folio:</span> <t t-esc="o.ref or ''"/>
+                      </div>
+                      <div style="font-size:10px; margin-top:3px;">
+                        <span class="rx-label">Fecha:</span>
+                        <t t-if="o.prescription_date">
+                          <span t-field="o.prescription_date" t-options="{'widget': 'datetime'}"/>
+                        </t>
+                        <t t-else="">
+                          <span t-field="o.create_date" t-options="{'widget': 'datetime'}"/>
+                        </t>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- ===== DATOS PACIENTE (SIN Px) ===== -->
+              <div class="rx-box">
+                <table style="width:100%; border-collapse:collapse;">
+                  <tr>
+                    <!-- IZQUIERDA -->
+                    <td style="width:60%; vertical-align:top;">
+                      <div>
+                        <span class="rx-label">Paciente:</span>
+                        <span class="field-text">
+                          <t t-esc="o.patient_id.name or ''"/>
+                        </span>
+                      </div>
+
+                      <div class="rx-muted" style="margin-top:4px;">
+                        <span class="rx-label">Encounter:</span>
+                        <span class="field-text">
+                          <t t-esc="o.encounter_id.ref or o.encounter_id.display_name or ''"/>
+                        </span>
+                      </div>
+                    </td>
+
+                    <!-- DERECHA -->
+                    <td style="width:40%; text-align:right; vertical-align:top;">
+                      <t t-if="o.diagnosis">
+                        <div><span class="rx-label">Diagnóstico:</span> <t t-esc="o.diagnosis"/></div>
+                      </t>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="rx-hr"></div>
+
+              <!-- ===== RX + MEDICAMENTOS (Rx AQUÍ, como debe ser) ===== -->
+              <div class="rx-meds-wrap">
+                <table class="rx-meds-table">
+                  <tr>
+                    <td class="rx-meds-left">
+                      <div class="rx-symbol">℞</div>
+                    </td>
+                    <td class="rx-meds-right">
+                      <t t-if="o.line_ids">
+                        <ol class="rx-medlist">
+                          <t t-foreach="o.line_ids.sorted(key=lambda l: (l.sequence or 0, l.id))" t-as="l">
+                            <li class="rx-meditem">
+                              <div class="rx-medname"><t t-esc="l.medicine"/></div>
+                              <div class="rx-medmeta">
+                                <t t-if="l.dose"><span class="rx-label">Dosis:</span> <t t-esc="l.dose"/> </t>
+                                <t t-if="l.route"><span class="rx-label">Vía:</span> <t t-esc="l.route"/> </t>
+                                <t t-if="l.frequency"><span class="rx-label">Frecuencia:</span> <t t-esc="l.frequency"/> </t>
+                                <t t-if="l.duration"><span class="rx-label">Duración:</span> <t t-esc="l.duration"/></t>
+                              </div>
+                              <t t-if="l.notes">
+                                <div style="margin-top:2px; color:#555;">
+                                  <em><t t-esc="l.notes"/></em>
+                                </div>
+                              </t>
+                            </li>
+                          </t>
+                        </ol>
+                      </t>
+                      <t t-else="">
+                        <div class="rx-muted">Sin medicamentos capturados.</div>
+                      </t>
+
+                      <t t-if="o.indications">
+                        <div class="rx-hr"></div>
+                        <div class="rx-label" style="margin-bottom:4px;">Indicaciones</div>
+                        <div class="rx-notes"><t t-esc="o.indications"/></div>
+                      </t>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Espaciador flexible: empuja el bloque inferior hacia abajo si falta contenido -->
+              <div class="rx-spacer"></div>
+
+            </div>
+
+            <!-- ===== BOTTOM AREA (siempre pegado al final) ===== -->
+            <div class="rx-bottom">
+
+              <!-- Firma abajo derecha -->
+              <div class="rx-sign">
+                <div class="rx-signline"></div>
+                <div class="rx-signlabel">Firma y sello</div>
+              </div>
+
+              <!-- Footer -->
+              <div class="rx-footer">
+                <table>
+                  <tr>
+                    <td style="width:60%;">
+                      <t t-if="o.company_id.street"><div><t t-esc="o.company_id.street"/></div></t>
+                      <div>
+                        <t t-esc="o.company_id.city or ''"/>
+                        <t t-if="o.company_id.state_id">, <t t-esc="o.company_id.state_id.name"/></t>
+                      </div>
+                    </td>
+                    <td class="right" style="width:40%;">
+                      <t t-if="o.company_id.phone">
+                        <div class="nowrap"><strong>Tel:</strong> <t t-esc="o.company_id.phone"/></div>
+                      </t>
+                      <t t-if="o.company_id.email">
+                        <div class="nowrap"><strong>Email:</strong> <t t-esc="o.company_id.email"/></div>
+                      </t>
+                      <t t-if="o.company_id.website">
+                        <div class="nowrap"><strong>Web:</strong> <t t-esc="o.company_id.website"/></div>
+                      </t>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+          </div>
+
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

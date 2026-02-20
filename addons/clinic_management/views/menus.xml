@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+        <data>
+        <!-- Menú principal -->
+        <menuitem id="menu_clinic_management" 
+                name="Clinic Management" 
+                sequence="10"
+                groups="clinic_management.group_clinic_management_admin,clinic_management.group_clinic_management_doctor,clinic_management.group_clinic_management_nurse,clinic_management.group_clinic_management_receptionist"/>
+        <!-- Submenú Pacientes -->
+        <menuitem id="menu_medical_patients" 
+                name="Patients" 
+                parent="menu_clinic_management" 
+                action="action_medical_patients" 
+                sequence="10"
+                groups="clinic_management.group_clinic_management_admin,clinic_management.group_clinic_management_doctor,clinic_management.group_clinic_management_nurse,clinic_management.group_clinic_management_receptionist"/>
+        <!-- Submenú Encounters -->
+        <menuitem id="menu_medical_encounters" 
+                name="Encounters" 
+                parent="menu_clinic_management" 
+                action="action_medical_encounter" 
+                sequence="20"
+                groups="clinic_management.group_clinic_management_admin,clinic_management.group_clinic_management_doctor,clinic_management.group_clinic_management_nurse"/>
+        <!-- Submenu Prescriptions -->
+        <menuitem id="menu_medical_prescriptions" 
+                name="Prescriptions" 
+                parent="menu_clinic_management" 
+                action="action_medical_prescription" 
+                sequence="30"
+                groups="clinic_management.group_clinic_management_admin,clinic_management.group_clinic_management_doctor"/>
+        </data>
+</odoo>

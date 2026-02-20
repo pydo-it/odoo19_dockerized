@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Acción del reporte -->
+        <record id="action_report_medical_prescription" model="ir.actions.report">
+            <field name="name">Receta médica</field>
+            <field name="model">medical.prescription</field>
+            <field name="report_type">qweb-pdf</field>
+            <!-- ESTE name debe apuntar a tu template -->
+            <field name="report_name">clinic_management.report_medical_prescription</field>
+            <field name="report_file">clinic_management.report_medical_prescription</field>
+            <field name="print_report_name">'Receta - %s' % (object.ref or '')</field>
+            <field name="binding_model_id" ref="model_medical_prescription"/>
+            <field name="binding_type">report</field>
+
+            <field name="paperformat_id" ref="clinic_management.paperformat_medical_prescription_half_letter_landscape"/>
+        </record>
+    </data>
+</odoo>

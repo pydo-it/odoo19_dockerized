@@ -1,0 +1,213 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* clinic_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0-20251208\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-11 17:45+0000\n"
+"PO-Revision-Date: 2026-02-11 17:45+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Odoo Server 19.0-20251208\n"
+
+#. module: clinic_management
+#: model:ir.ui.menu,name:clinic_management.menu_clinic_management
+msgid "Clinic Management"
+msgstr ""
+
+#. module: clinic_management
+#: model:ir.actions.act_window,name:clinic_management.action_medical_patients
+#: model:ir.ui.menu,name:clinic_management.menu_medical_patients
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_list
+msgid "Patients"
+msgstr "Pacientes"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__ref
+msgid "Patient Folio"
+msgstr "Folio del Paciente"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__name
+msgid "Patient Name"
+msgstr "Nombre del Paciente"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__phone
+msgid "Phone"
+msgstr "Teléfono"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__email
+msgid "Email"
+msgstr "Correo Electrónico"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__birthdate
+msgid "Birthdate"
+msgstr "Fecha de Nacimiento"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__age
+msgid "Age"
+msgstr "Edad"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__gender
+msgid "Gender"
+msgstr "Género"
+
+#. module: clinic_management
+#: model:ir.model.fields.selection,name:clinic_management.selection__medical_patients__gender__male
+msgid "Male"
+msgstr "Masculino"
+
+#. module: clinic_management
+#: model:ir.model.fields.selection,name:clinic_management.selection__medical_patients__gender__female
+msgid "Female"
+msgstr "Femenino"
+
+#. module: clinic_management
+#: model:ir.model.fields.selection,name:clinic_management.selection__medical_patients__gender__other
+msgid "Other"
+msgstr "Otro"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__curp
+msgid "CURP"
+msgstr ""
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__rfc
+msgid "RFC"
+msgstr ""
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_form
+msgid "Contact Information"
+msgstr "Información de Contacto"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_form
+msgid "Demographic Information"
+msgstr "Información Demográfica"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_form
+msgid "Identification"
+msgstr "Identificación"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_form
+msgid "Clinical History"
+msgstr "Historial Clínico"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__encounter_ids
+#: model:ir.model.fields,field_description:clinic_management.field_medical_patients__encounter_count
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_patients_form
+#: model:ir.actions.act_window,name:clinic_management.action_medical_encounter
+#: model:ir.ui.menu,name:clinic_management.menu_medical_encounters
+msgid "Encounters"
+msgstr "Consultas"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__encounter_date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__doctor_user_id
+msgid "Doctor"
+msgstr "Médico"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__state
+msgid "State"
+msgstr "Estado"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__diagnosis
+msgid "Diagnosis"
+msgstr "Diagnóstico"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__patient_id
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__ref
+msgid "Encounter Folio"
+msgstr "Folio de Consulta"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__chief_complaint
+msgid "Chief Complaint"
+msgstr "Motivo de Consulta"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__present_illness
+msgid "History of Present Illness"
+msgstr "Historia de la Enfermedad Actual"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__physical_exam
+msgid "Physical Exam"
+msgstr "Examen Físico"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__plan
+msgid "Plan / Treatment"
+msgstr "Plan / Tratamiento"
+
+#. module: clinic_management
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__notes
+msgid "Additional Notes"
+msgstr "Notas Adicionales"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form_readonly
+msgid "Clinical Note"
+msgstr "Nota Clínica"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form_readonly
+msgid "Vitals"
+msgstr "Signos Vitales"
+
+#. module: clinic_management
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form_readonly
+msgid "Blood Pressure"
+msgstr "Presión Arterial"
+
+
+
+#. module: clinic_management
+#: model:ir.actions.act_window,name:clinic_management.action_medical_lab_result
+#: model:ir.model.fields,field_description:clinic_management.field_medical_encounter__lab_result_ids
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form
+#: model_terms:ir.ui.view,arch_db:clinic_management.view_medical_encounter_form_readonly
+msgid "Lab Results"
+msgstr "Resultados de Laboratorio"
+

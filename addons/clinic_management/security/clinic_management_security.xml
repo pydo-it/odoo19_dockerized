@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Categoría (la sección) -->
+        <record id="module_category_clinic_management" model="ir.module.category">
+            <field name="name">Clinic Management</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Privilegio (el “bloque” que aparece en Permisos adicionales) -->
+        <record id="res_groups_privilege_clinic_management" model="res.groups.privilege">
+            <field name="name">Clinic Management</field>
+            <field name="category_id" ref="module_category_clinic_management"/>
+        </record>
+
+        <!-- Grupos -->
+        <record id="group_clinic_management_admin" model="res.groups">
+            <field name="name">Clinic Admin</field>
+            <field name="privilege_id" ref="res_groups_privilege_clinic_management"/>
+        </record>
+
+        <record id="group_clinic_management_doctor" model="res.groups">
+            <field name="name">Clinic Doctor</field>
+            <field name="privilege_id" ref="res_groups_privilege_clinic_management"/>
+        </record>
+
+        <record id="group_clinic_management_nurse" model="res.groups">
+            <field name="name">Clinic Nurse</field>
+            <field name="privilege_id" ref="res_groups_privilege_clinic_management"/>
+        </record>
+
+        <record id="group_clinic_management_receptionist" model="res.groups">
+            <field name="name">Clinic Receptionist</field>
+            <field name="privilege_id" ref="res_groups_privilege_clinic_management"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_medical_patients","access_medical_patients","model_medical_patients","clinic_management.group_clinic_management_admin",1,1,1,1
+"access_medical_encounter","access_medical_encounter","model_medical_encounter","clinic_management.group_clinic_management_admin",1,1,1,1
+"access_medical_lab_result","access_medical_lab_result","model_medical_lab_result","clinic_management.group_clinic_management_admin",1,1,1,1
+"access_medical_lab_result_pdf_preview_wizard","access_medical_lab_result_pdf_preview_wizard","model_medical_lab_result_pdf_preview_wizard","clinic_management.group_clinic_management_admin",1,1,1,1
+"access_medical_prescription","access_medical_prescription","model_medical_prescription","clinic_management.group_clinic_management_admin",1,1,1,1
+"access_medical_prescription_line","access_medical_prescription_line","model_medical_prescription_line","clinic_management.group_clinic_management_admin",1,1,1,1

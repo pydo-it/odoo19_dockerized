@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="action_medical_encounter_from_patient" model="ir.actions.act_window">
+        <field name="name">Encounters</field>
+        <field name="res_model">medical.encounter</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('patient_id', '=', active_id)]</field>
+        <field name="context">{'default_patient_id': active_id}</field>
+    </record>
+</odoo>

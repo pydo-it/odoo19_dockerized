@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_medical_prescription_from_encounter" model="ir.actions.act_window">
+            <field name="name">Prescriptions</field>
+            <field name="res_model">medical.prescription</field>
+            <field name="view_mode">list,form</field>
+            <field name="domain">[('encounter_id','=', active_id)]</field>
+            <field name="context">{'default_encounter_id': active_id}</field>
+        </record>
+    </data>
+</odoo>

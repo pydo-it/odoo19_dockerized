@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+      <!-- Tree -->
+      <record id="view_medical_lab_result_tree" model="ir.ui.view">
+        <field name="name">medical.lab.result.tree</field>
+        <field name="model">medical.lab.result</field>
+        <field name="arch" type="xml">
+          <list>
+            <field name="ref"/>
+            <field name="study_name"/>
+            <field name="result_date"/>
+            <field name="patient_id"/>
+            <field name="doctor_user_id"/>
+            <field name="state"/>
+          </list>
+        </field>
+      </record>
+      <!-- Form -->
+      <record id="view_medical_lab_result_form" model="ir.ui.view">
+        <field name="name">medical.lab.result.form</field>
+        <field name="model">medical.lab.result</field>
+        <field name="arch" type="xml">
+          <form string="Lab Result">
+            <header>
+              <button name="action_open_result_pdf_new_tab"
+                      type="object"
+                      string="Ver PDF"
+                      class="btn-primary"
+                      invisible="not result_pdf"/>
+            </header>
+            <sheet>
+              <group>
+                <group>
+                  <field name="ref" readonly="1"/>
+                  <field name="encounter_id" required="1"/>
+                  <field name="patient_id" readonly="1"/>
+                  <field name="doctor_user_id" readonly="1"/>
+                </group>
+                <group>
+                  <field name="study_name" required="1"/>
+                  <field name="result_date"/>
+                  <field name="state"/>
+                </group>
+              </group>
+              <group string="Result">
+                <field name="result_pdf" filename="result_pdf_filename"/>
+                <!-- Miniatura clickeable -->
+                <div invisible="not result_pdf">
+                  <a type="object" name="action_open_result_pdf" class="d-inline-block">
+                    <field name="preview_image" widget="image" class="oe_avatar" nolabel="1"/>
+                  </a>
+                </div>
+                <div invisible="result_pdf">
+                  <field name="preview_image" widget="image" class="oe_avatar" nolabel="1"/>
+                </div>
+                <!-- Si quieres mostrar algo cuando NO hay PDF -->
+                <field name="preview_image"
+                      widget="image"
+                      class="oe_avatar"
+                      nolabel="1"
+                      invisible="result_pdf"/>
+                <field name="notes"/>
+            </group>
+            </sheet>
+            <chatter/>
+          </form>
+        </field>
+      </record>
+      <!-- Kanban -->
+      <record id="view_medical_lab_result_kanban" model="ir.ui.view">
+        <field name="name">medical.lab.result.kanban</field>
+        <field name="model">medical.lab.result</field>
+        <field name="arch" type="xml">
+          <kanban class="o_kanban_small_column">
+            <field name="preview_image"/>
+            <field name="result_pdf"/>
+            <field name="study_name"/>
+            <field name="ref"/>
+            <field name="state"/>
+            <templates>
+              <!-- Odoo 19 expects 'card' -->
+              <t t-name="card">
+                <div class="o_kanban_record">
+                  <!-- Esto hace que la tarjeta sea clickeable y abra el form -->
+                  <a type="open" class="d-block" style="text-decoration:none;">
+                    <div style="height:220px; overflow:hidden; border:1px solid #ddd; border-radius:6px;">
+                      <t t-if="record.preview_image.raw_value">
+                        <img t-att-src="kanban_image('medical.lab.result','preview_image', record.id.raw_value)"
+                            t-att-alt="record.study_name.value or 'Lab result preview'"
+                            style="width:100%; height:auto; display:block;"/>
+                      </t>
+                      <t t-else="">
+                        <div style="height:220px; display:flex; align-items:center; justify-content:center;">
+                          <span class="text-muted">No preview</span>
+                        </div>
+                      </t>
+                    </div>
+                    <div class="mt8">
+                      <strong><field name="study_name"/></strong>
+                      <div><field name="ref"/></div>
+                      <div><field name="state"/></div>
+                    </div>
+                  </a>
+                </div>
+              </t>
+              <t t-name="kanban-box">
+                <t t-call="card"/>
+              </t>
+            </templates>
+          </kanban>
+        </field>
+      </record>
+      <!-- Action -->
+      <record id="action_medical_lab_result" model="ir.actions.act_window">
+        <field name="name">Lab Results</field>
+        <field name="res_model">medical.lab.result</field>
+        <field name="view_mode">kanban,tree,form</field>
+      </record>
+    </data>
+</odoo>
