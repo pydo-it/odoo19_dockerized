@@ -136,7 +136,7 @@ Easily extendable with:
 ## 👨‍💻 Developed by
 
 **Luis Angel De Los Santos León**  
-Odoo Developer | ERP Specialist | Healthcare IT Specialist
+Odoo Developer | ERP Specialist | Healthcare IT Specialist  
 📧 ldelossantos@pydo-it.com
 
 ---
